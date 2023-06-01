@@ -1,7 +1,10 @@
 package ru.tusur.lab4.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "item")

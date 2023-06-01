@@ -1,5 +1,6 @@
 package ru.tusur.lab4.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,21 +16,25 @@ public class ItemController {
 
     ItemService itemService;
 
+    @Tag(name = "Crud Operation")
     @GetMapping("/{id}")
     public ResponseEntity<Item> getItem(@PathVariable Long id) {
         return new ResponseEntity<>(itemService.getItem(id), HttpStatus.OK);
     }
 
+    @Tag(name = "Crud Operation")
     @PostMapping
     public ResponseEntity<Item> saveItem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.saveItem(item), HttpStatus.CREATED);
     }
 
+    @Tag(name = "Crud Operation")
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.saveItem(item), HttpStatus.OK);
     }
 
+    @Tag(name = "Crud Operation")
     @DeleteMapping("/{id}")
     public ResponseEntity updateItem(@PathVariable Long id) {
         itemService.deleteItem(id);
