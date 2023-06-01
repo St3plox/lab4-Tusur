@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17-jdk-alpine
 VOLUME /tmp
-COPY target/*.jar *.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY target/*.jar lab4-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/lab4-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080
