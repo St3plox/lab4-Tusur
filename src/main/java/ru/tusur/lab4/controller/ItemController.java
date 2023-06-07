@@ -32,7 +32,7 @@ public class ItemController {
     }
 
     @Tag(name = "Crud Operation")
-    @Operation(summary = "Обновляет продукт", description = "Обновляет продукт по зажанному id")
+    @Operation(summary = "Обновляет продукт", description = "Обновляет продукт по заданному id")
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.saveItem(item), HttpStatus.OK);

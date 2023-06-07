@@ -3,6 +3,7 @@ package ru.tusur.lab4.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tusur.lab4.entity.Item;
+import ru.tusur.lab4.exception.ItemNotFoundException;
 import ru.tusur.lab4.repository.ItemRepository;
 
 import java.util.Optional;
@@ -49,6 +50,6 @@ public class ItemServiceImpl implements ItemService{
     }
     private Item unwrapItem(Optional<Item> item){
         if(item.isPresent()) return item.get();
-        else throw new RuntimeException("Item not found");
+        else throw new ItemNotFoundException("item not found");
     }
 }
