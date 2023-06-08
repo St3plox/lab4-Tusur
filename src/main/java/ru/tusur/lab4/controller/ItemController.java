@@ -25,17 +25,24 @@ public class ItemController {
     }
 
     @Tag(name = "Crud Operation")
-    @Operation(summary = "Сохраняет проlукт", description = "Сохраняет продукт, принимая json item")
+    @Operation(summary = "Сохраняет продукт", description = "Сохраняет продукт, принимая json item")
     @PostMapping
     public ResponseEntity<Item> saveItem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.saveItem(item), HttpStatus.CREATED);
     }
 
     @Tag(name = "Crud Operation")
-    @Operation(summary = "Обновляет продукт", description = "Обновляет продукт по заданному id")
+    @Operation(summary = "Обновляет продукт", description = "Обновляет отдельные поля продукта по заданному id")
+    @PatchMapping("/{id}")
+    public ResponseEntity<Item> updateItem(@PathVariable Long id, @RequestBody Item item) {
+        return new ResponseEntity<>(itemService.changeItem(id, item), HttpStatus.OK);
+    }
+
+    @Tag(name = "Crud Operation")
+    @Operation(summary = "Обновляет продукт", description = "Обновляет отдельные поля продукта по заданному id")
     @PutMapping("/{id}")
-    public ResponseEntity<Item> updateItem(@RequestBody Item item) {
-        return new ResponseEntity<>(itemService.saveItem(item), HttpStatus.OK);
+    public ResponseEntity<Item> putItem(@PathVariable Long id, @RequestBody Item item) {
+        return new ResponseEntity<>(itemService.putItem(id, item), HttpStatus.OK);
     }
 
     @Tag(name = "Crud Operation")

@@ -9,6 +9,8 @@ public interface ItemService {
 
     Item changeItem(Long id, Item inputItem);
 
+    Item putItem(Long id, Item inputItem);
+
     Double getMaxPrice();
 
     Double getAveragePrice();
